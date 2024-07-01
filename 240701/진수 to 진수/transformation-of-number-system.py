@@ -22,10 +22,10 @@ def fromDigit(f, n):
     li = deque()
     result = 0
     while num > 1:
-        li.appendleft(num % f)
+        li.append(num % f)
         num //= f
         if num == 1:
-            li.appendleft(num)
+            li.append(num)
             break
     for i in range(len(li)):
         result += li[i] * (10 ** i)

@@ -24,12 +24,13 @@ for i in range(N):
     rect[i][3] -= min_y
 
 coo = [[0 for _ in range(max_y - min_y)]for _ in range(max_x - min_x)]
-print(rect)
-print(coo)
 for a, b, c, d in rect:
     for i in range(a, c):
-        for j in (b, d):
-            print(i, j)
+        for j in range(b, d):
             coo[i][j] = 1
 
-print(coo.count(1))
+res = 0
+for arr in coo:
+    res += arr.count(1)
+
+print(res)

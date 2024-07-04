@@ -7,9 +7,11 @@ for i in inp:
         li[i] += 1
     else:
         li[i] = 1
-a, b = map(int, sys.stdin.readline().split())
-if a not in li:
-    li[a] = 0
-if b not in li:
-    li[b] = 0
-print(li[a], li[b])
+
+res_in = list(map(int, sys.stdin.readline().split()))
+for i in range(len(res_in)):
+     if res_in[i] not in li:
+        li[res_in[i]] = 0
+
+for r in res_in:
+    print(li[r], end=' ')

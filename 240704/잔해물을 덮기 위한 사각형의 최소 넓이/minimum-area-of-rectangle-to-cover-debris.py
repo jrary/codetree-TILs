@@ -48,4 +48,10 @@ for i in range(len_x):
                 if j > max_ry:
                     max_ry = j
 
+if min_rx == -1 and min_ry == -1:
+    min_rx = 0
+    min_ry = 0
+    max_rx = -1
+    max_ry = -1
+      
 print((max_rx - min_rx + 1) * (max_ry - min_ry + 1))

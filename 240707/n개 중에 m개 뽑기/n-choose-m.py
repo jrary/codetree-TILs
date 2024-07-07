@@ -1,12 +1,16 @@
 import sys
 N, M = map(int, sys.stdin.readline().split())
 
-def bt(comb):
-    if len(comb) == M:
-        print(comb)
-    for i in range(1, N+1):
+comb = []
+def bt(n):
+    for i in range(n, N+1):
         if i in comb:
             continue
-        bt(comb.append(i))
+        comb.append(i)
+        if len(comb) == M:
+            print(' '.join(map(str, comb)))
+        else:
+            bt(i)
+        comb.pop()
 
-bt([])
+bt(1)

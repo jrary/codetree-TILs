@@ -29,13 +29,16 @@ def calc_length(n, now_length_comb):
 select_spot(-1, [])
 calc_length(-1, [])
 
-max_length = 0
+min_length = 10000
 for spots in spot_comb:
+    now_max_length = 0
     for lenspots in length_comb:
         x1, y1 = spot[spots[lenspots[0]]]
         x2, y2 = spot[spots[lenspots[1]]]
         length = (x1 - x2)**2 + (y1 - y2)**2 
-        if length > max_length:
-            max_length = length
-
-print(max_length)
+        if length > now_max_length:
+            now_max_length = length
+    if now_max_length < min_length:
+        min_length = now_max_length
+        
+print(min_length)

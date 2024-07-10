@@ -9,7 +9,7 @@ col_arr = []
 
 def bf(now_li):
     if len(now_li) == N:
-        col_arr.append(now_li)
+        col_arr.append(now_li[:])
         return
     
     for i in range(N):

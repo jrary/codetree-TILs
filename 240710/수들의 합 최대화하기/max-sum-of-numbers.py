@@ -1,29 +1,35 @@
 import sys
-N = int(sys.stdin.readline())
+input = sys.stdin.read
+data = input().split()
+
+N = int(data[0])
 matrix = []
-for _ in range(N):
-    matrix.append(list(map(int, sys.stdin.readline().split())))
+index = 1
+for i in range(N):
+    matrix.append(list(map(int, data[index:index + N])))
+    index += N
+
+col_arr = []
+
+def bf(now_li):
+    if len(now_li) == N:
+        col_arr.append(now_li[:])
+        return
+    
+    for i in range(N):
+        if i not in now_li:
+            now_li.append(i)
+            bf(now_li)
+            now_li.pop()
+
+bf([])
 
 max_sum = 0
-def bf(w, h, now_li):
-    global max_sum
-    for height in range(N):
-        if height not in h:
-            for width in range(N):
-                if width not in w:
-                    now_li.append(matrix[width][height])
-                    h.append(height)
-                    w.append(width)
+for arr in col_arr:
+    now_sum = 0
+    for i in range(N):
+        now_sum += matrix[i][arr[i]]
+    if now_sum > max_sum:
+        max_sum = now_sum
 
-                    if len(now_li) == N:
-                        now_sum = sum(now_li)
-                        if now_sum > max_sum:
-                            max_sum = now_sum
-                    else:
-                        bf(w, h, now_li)
-                    
-                    h.pop()
-                    w.pop()
-                    now_li.pop()
-bf([], [], [])
 print(max_sum)

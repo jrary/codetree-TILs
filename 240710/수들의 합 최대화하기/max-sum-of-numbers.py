@@ -1,19 +1,15 @@
 import sys
-input = sys.stdin.read
-data = input().split()
 
-N = int(data[0])
+N = int(sys.stdin.readline())
 matrix = []
-index = 1
-for i in range(N):
-    matrix.append(list(map(int, data[index:index + N])))
-    index += N
+for _ in range(N):
+    matrix.append(list(map(int, sys.stdin.readline().split())))
 
 col_arr = []
 
 def bf(now_li):
     if len(now_li) == N:
-        col_arr.append(now_li[:])
+        col_arr.append(now_li)
         return
     
     for i in range(N):

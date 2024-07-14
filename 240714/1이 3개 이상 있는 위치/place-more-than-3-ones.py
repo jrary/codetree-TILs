@@ -16,7 +16,7 @@ def find(x, y):
     for dx, dy in d:
         nx = x+dx
         ny = y+dy
-        if nx < N and ny < N and li[nx][ny] == 1:
+        if nx < N and nx >= 0 and ny < N and ny >= 0 and li[nx][ny] == 1:
             now_res += 1
     return now_res
 

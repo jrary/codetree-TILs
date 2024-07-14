@@ -14,7 +14,7 @@ for i in range(1, N*M+1):
     res[x][y] = i
     nx = x + d[di][0]
     ny = y + d[di][1]
-    if nx >= M or ny >= N or nx < 0 or ny < 0 or res[nx][ny] != 0:
+    if nx >= N or ny >= M or nx < 0 or ny < 0 or res[nx][ny] != 0:
         di += 1
         if di >= 4:
             di -= 4

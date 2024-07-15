@@ -6,9 +6,9 @@ for _ in range(N):
 K = int(sys.stdin.readline())
 
 d = [
-    [-1, 0],
-    [0, -1],
     [1, 0],
+    [0, -1],
+    [-1, 0],
     [0, 1]
 ]
 
@@ -26,10 +26,10 @@ elif a == 2:
     x = N - 1
     y = b - 1
 elif a == 3:
-    x = N - 1
+    x = 3-b
     y = 0
 
-count = 1
+count = 0
 while x < N and x >= 0 and y < N and y >= 0:
     count += 1
     if mirror[x][y] == '\\':

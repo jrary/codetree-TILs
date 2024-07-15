@@ -15,6 +15,9 @@ d = [
 a = K // N
 b = K % N
 x, y = 0, 0
+if b == 0:
+    a -= 1
+    b = N
 di = a
 if a == 0:
     x = 0

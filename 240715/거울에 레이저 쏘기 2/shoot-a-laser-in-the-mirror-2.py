@@ -26,7 +26,7 @@ elif a == 2:
     x = N - 1
     y = b - 1
 elif a == 3:
-    x = 3-b
+    x = N-b
     y = 0
 
 count = 0

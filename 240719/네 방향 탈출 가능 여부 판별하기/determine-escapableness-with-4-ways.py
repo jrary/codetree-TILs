@@ -27,4 +27,4 @@ def bfs():
                 queue.append([nx, ny])
 
 
-print(bfs())
+print(1 if bfs() else 0)

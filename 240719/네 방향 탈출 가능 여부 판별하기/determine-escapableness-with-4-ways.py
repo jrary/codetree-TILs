@@ -16,7 +16,7 @@ def bfs():
     queue = deque()
     queue.append([0, 0])
     while queue:
-        x, y = queue.popleft()
+        x, y = queue.pop()
         visited[x][y] = 1
         if x == N - 1 and y == M - 1:
             return 1

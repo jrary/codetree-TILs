@@ -12,6 +12,7 @@ di = [
 ]
 
 visited = [[0 for _ in range(M)] for _ in range(N)]
+result = 0
 def bfs():
     queue = deque()
     queue.append([0, 0])
@@ -19,11 +20,11 @@ def bfs():
         x, y = queue.popleft()
         visited[x][y] = 1
         if x == N - 1 and y == M - 1:
-            return 1
+            result = 1
         for dx, dy in di:
             nx = x + dx
             ny = y + dy
             if nx >= 0 and nx < N and ny >= 0 and ny < M and visited[nx][ny] == 0 and snake[nx][ny] == 1:
                 queue.append([nx, ny])
 
-print(1 if bfs() else 0)
+print(result)

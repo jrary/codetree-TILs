@@ -15,10 +15,10 @@ visited = [[0 for _ in range(N)] for _ in range(N)]
 def bfs(a, b):
     queue = deque()
     queue.append([a, b])
+    visited[a][b] = 1
     count = 0
     while queue:
         x, y = queue.popleft()
-        visited[x][y] = 1
         count += 1
         for dx, dy in di:
             nx = x + dx
@@ -26,6 +26,7 @@ def bfs(a, b):
             if nx >= 0 and nx < N and ny >= 0 and ny < N and visited[nx][ny] == 0:
                 height_abs = abs(building[x][y] - building[nx][ny])
                 if height_abs >= U and height_abs <= D:
+                    visited[nx][ny] = 1
                     queue.append([nx, ny])
     return count
 

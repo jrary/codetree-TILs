@@ -14,6 +14,11 @@ for _ in range(N):
     if now_min < min_v:
         min_v = now_min
 
+if min_v != 1:
+    min_v -= 1
+if max_v != 100:
+    max_v += 1
+
 di = [
     [0, 1],
     [0, -1],

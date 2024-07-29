@@ -26,13 +26,18 @@ di = [
     [-1, 0]
 ]
 visited = [[0 for _ in range(M)] for _ in range(N)]
+
 def dfs(k, x, y):
-    visited[x][y] = 1
-    for dx, dy in di:
-        nx = x + dx
-        ny = y + dy
-        if nx < N and ny < M and nx >= 0 and ny >= 0 and visited[nx][ny] == 0 and v[nx][ny] > k:
-            dfs(k, nx, ny)
+    stack = [(x, y)]
+    while stack:
+        x, y = stack.pop()
+        if visited[x][y] == 0:
+            visited[x][y] = 1
+            for dx, dy in di:
+                nx = x + dx
+                ny = y + dy
+                if nx < N and ny < M and nx >= 0 and ny >= 0 and visited[nx][ny] == 0 and v[nx][ny] > k:
+                    stack.append((nx, ny))
 
 max_cnt = 0
 max_k = min_v

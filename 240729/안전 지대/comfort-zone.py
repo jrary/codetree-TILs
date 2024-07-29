@@ -30,7 +30,7 @@ def dfs(k, x, y):
             dfs(k, nx, ny)
 
 max_cnt = 0
-max_k = 0
+max_k = min_v
 for k in range(min_v, max_v + 1):
     visited = [[0 for _ in range(M)] for _ in range(N)]
     now_count = 0

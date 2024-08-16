@@ -7,4 +7,5 @@ def dp():
     for i in range(N):
         fibo.append(fibo[i] + fibo[i+1])
 
+dp()
 print(fibo[N-1])
